@@ -134,15 +134,27 @@ $("body").on("keydown", "input.search", function(e) {
 // load found product/s
 function load_found_products(str){
     let products_found = [];
+    let nfound = 0;
 
     // search for product
     products.forEach( (product) => {
         let pname = product.name;
         if (pname.toLowerCase().includes(str) === true) {
             products_found.push(product);
+            nfound += 1;
             return false; // stops the loop
         }
     });
+
+    if (nfound === 0) {
+        $('#product-cards').empty();
+        $('#product-cards').append(
+            '<div class="ui container" style="padding-left: 0.7543vw">' +
+                '<h2 class="ui medium header">No records found.</2>' +
+            '</div>'
+        );
+        return true;
+    }
 
     // clear cards and display found products
     $('#product-cards').empty();
