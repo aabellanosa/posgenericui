@@ -113,7 +113,9 @@ $(function() {
         
         // get card's image
         prod_image = $(this).children('.image').children('img').attr('src');
-        $("#prod_image").attr("src", prod_image);
+        // $("#prod_image").attr("src", prod_image);
+        // $(".something").attr( { title:"Test", alt:"Test2" } );
+        $("#prod_image").attr( { src:prod_image, alt:prod_name } );
 
         $('#txtCount').val(0);
         do_calculate();
@@ -165,7 +167,7 @@ function load_found_products(str){
         $('#product-cards').append(
             '<div class="card">' +
                 '<div class="image">' +
-                    '<img src="' + image_path + '">' +
+                    '<img src="' + image_path + '" alt="' + pname + '">' +
                 '</div>' +
                 '<div class="content">' +
                     '<input type="hidden" id="' + pname.split(' ').join('-') + '" name="" value="' + prod_info.join(';') + '" />' +
@@ -200,7 +202,7 @@ function load_products_by_cat(cat){
         $('#product-cards').append(
             '<div class="card">' +
                 '<div class="image">' +
-                    '<img src="' + image_path + '">' +
+                    '<img src="' + image_path + '" alt="' + pname + '">' +
                 '</div>' +
                 '<div class="content">' +
                     '<input type="hidden" id="' + pname.split(' ').join('-') + '" name="" value="' + prod_info.join(';') + '" />' +
@@ -225,7 +227,7 @@ function load_products(){
         $('#product-cards').append(
             '<div class="card">' +
                 '<div class="image">' +
-                    '<img src="' + image_path + '">' +
+                    '<img src="' + image_path + '" alt="' + pname + '">' +
                 '</div>' +
                 '<div class="content">' +
                     '<input type="hidden" id="' + pname.split(' ').join('-') + '" name="" value="' + prod_info.join(';') + '" />' +
