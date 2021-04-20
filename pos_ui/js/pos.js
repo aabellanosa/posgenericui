@@ -111,11 +111,8 @@ $(function() {
         prod_items = prod_id === 1 ? parseInt(prod_info[1]) + 3: parseInt(prod_info[1]);
         $('#prod_items').text(prod_items + ( prod_items > 1 ? ' items': ' item'));
         
-        // get card's image
         prod_image = $(this).children('.image').children('img').attr('src');
-        // $("#prod_image").attr("src", prod_image);
-        // $(".something").attr( { title:"Test", alt:"Test2" } );
-        $("#prod_image").attr( { src:prod_image, alt:prod_name } );
+        $("#prod_image").attr( { src:prod_image, alt:prod_name, title:prod_name } );
 
         $('#txtCount').val(0);
         do_calculate();
