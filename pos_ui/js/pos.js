@@ -111,7 +111,9 @@ $(function() {
         prod_items = prod_id === 1 ? parseInt(prod_info[1]) + 3: parseInt(prod_info[1]);
         $('#prod_items').text(prod_items + ( prod_items > 1 ? ' items': ' item'));
         
+        // get image src from img tag 
         prod_image = $(this).children('.image').children('img').attr('src');
+        // set 3 attributes (src, alt, title) to the specified img tag
         $("#prod_image").attr( { src:prod_image, alt:prod_name, title:prod_name } );
 
         $('#txtCount').val(0);
@@ -164,7 +166,7 @@ function load_found_products(str){
         $('#product-cards').append(
             '<div class="card">' +
                 '<div class="image">' +
-                    '<img src="' + image_path + '" alt="' + pname + '">' +
+                    '<img src="' + image_path + '" alt="' + pname + '" title="' + pname + '">' +
                 '</div>' +
                 '<div class="content">' +
                     '<input type="hidden" id="' + pname.split(' ').join('-') + '" name="" value="' + prod_info.join(';') + '" />' +
@@ -199,7 +201,7 @@ function load_products_by_cat(cat){
         $('#product-cards').append(
             '<div class="card">' +
                 '<div class="image">' +
-                    '<img src="' + image_path + '" alt="' + pname + '">' +
+                    '<img src="' + image_path + '" alt="' + pname + '" title="' + pname + '">' +
                 '</div>' +
                 '<div class="content">' +
                     '<input type="hidden" id="' + pname.split(' ').join('-') + '" name="" value="' + prod_info.join(';') + '" />' +
@@ -224,7 +226,7 @@ function load_products(){
         $('#product-cards').append(
             '<div class="card">' +
                 '<div class="image">' +
-                    '<img src="' + image_path + '" alt="' + pname + '">' +
+                    '<img src="' + image_path + '" alt="' + pname + '" title="' + pname + '">' +
                 '</div>' +
                 '<div class="content">' +
                     '<input type="hidden" id="' + pname.split(' ').join('-') + '" name="" value="' + prod_info.join(';') + '" />' +
