@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="ui container">
+        <div class="ui container header">
+            <div id="banner" class="ui container">
+                <header class="ui" role="banner"> 
+                    <a href="#"> 
+                        <img src="./images/logo.png" alt="POS Home" title="POS Home"/>  
+                    </a> 
+                </header>
+
+                <div id="menu" class="ui inverted compact menu">
+                    <div class="ui simple dropdown item">
+                      <span id="menu-label">POS <i class="dropdown icon"></i></span>
+                      <div class="menu">
+                        <div class="item">DASHBOARD</div>
+                        <div class="item">ORDER</div>
+                        <div class="item">CATEGORIES</div>
+                        <div class="item">PRODUCTS</div>
+                        <div class="item">COUPON</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui hidden divider"></div>
+
+        <!-- container w/ grid -->
+        <div class="ui container main">
+            <div class="ui grid">
+
+                <!-- products list -->
+                <div class="ui ten wide column">
+                    <div class="ui container">
+                        <div class="ui container" style="background-color:transparent;">
+                            <div id="div-search-box" class="ui search">
+                                <div id="div-search" class="ui input fluid">
+                                    <div class="ui icon search">
+                                        <i class="search icon"></i>
+                                    </div>
+                                    <input id="fldSearch" class="prompt search" type="text" placeholder="Search products">
+                                </div>
+                                <div class="results"></div>
+                            </div>
+                        </div>
+
+                        <div class="ui hidden divider"></div>
+
+                        <!-- products list main container -->
+                        <div class="ui container" style="background-color: white;">
+                            <div class="ui fluid container categories" style="background-color: white;">
+                                <div class="ui fluid container">
+                                    <label for="category" class="ui medium header">
+                                        Categories
+                                    </label>
+                                    <select name="category" id="category" class="ui dropdown" autofocus="true"> </select>
+                                </div>
+                            </div>
+
+                            <div class="ui divider"></div>
+
+                            <!-- products cards: loaded through script -->
+                            <div id="product-cards" class="ui link cards" style="background-color: white;"> </div>
+
+                        </div>
+                        <!-- end of products list main container -->
+
+                    </div>
+                </div>
+                <!-- end of products list -->
+
+                <!-- product info -->
+                <div class="ui six wide column">
+                    <!-- product info pane -->
+                    <div class="ui container product-info-wrapper">
+
+                        <div class="ui container product-info">
+                            <h2 id="products-header" class="ui medium header">
+                                Products
+                            </h2>
+                        </div>
+
+                        <div class="ui divider"></div>
+
+                        <!-- container product-info -->
+                        <div class="ui container product-info">
+
+                            <!-- flexcontainer: for product thumb, info, buttons (+/-), price -->
+                            <div class="flexcontainer">
+
+                                <!-- product thumb and info -->
+                                <div class="ui items">
+                                    <div id="item" class="item">
+                                      <div class="image">
+                                        <img id="prod_image" src="images/product01.png" alt="Handmade Rubber Shirt" title="Handmade Rubber Shirt">
+                                      </div>
+                                      <div id="content" class="content">
+                                        <a id="prod_name" class="header">Handmade Rubber Shirt</a>
+                                        <!-- <div class="description">
+                                          <p></p>
+                                        </div> -->
+                                        <div id="prod_items" class="meta">
+                                          156 items
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                <!-- end of product thumb and info -->
+
+                                <!-- for buttons (+/-) -->
+                                <div class="ui right labeled input">
+                                    <div class="ui small vertical buttons">
+                                        <button class="ui icon button edit" command="Edit"> <i class="pencil icon"></i> </button>
+                                    </div> 
+                                    
+                                    &nbsp;
+                                    <div class="ui mini vertical buttons">
+                                        <button class="ui icon button down" command="Down"> <i class="minus icon"></i> </button>
+                                    </div>
+
+                                    <input type="text" id="txtCount" value="3">
+
+                                    <div class="ui mini vertical buttons">
+                                        <button class="ui icon button up" command="Up"> <i class="plus icon"></i> </button>
+                                    </div>
+                                </div>
+                                <!-- end of buttons (+/-) -->
+                                
+                                <!-- price -->
+                                <div class="ui container price">
+                                    <span id="ntotal">$1,458.0</span>
+                                </div>
+                                <!-- end of price -->
+
+                            </div>
+                            <!-- end of flexcontainer -->
+                            
+
+                            <table class="ui tablet stackable table">
+                                <tbody>
+                                <tr>
+                                    <td>DSVGGFT</td>
+                                    <td class="right aligned">
+                                        <div class="ui medium vertical buttons">
+                                            <button class="ui icon button primary" style="border-radius: 50%;"> <i class="plus icon"></i> </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Enrico Schinner</td>
+                                    <td class="right aligned">
+                                        <div class="ui medium vertical buttons">
+                                            <button class="ui icon button primary" style="border-radius: 50%;"> <i class="plus icon"></i> </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Subtotal</td>
+                                    <td id="subtotal" class="right aligned amount">$1,458.0</td>
+                                </tr>
+                                <tr>
+                                    <td>Discount</td>
+                                    <td id="discount" class="right aligned amount">-$69.0</td>
+                                </tr>
+                                <tr>
+                                    <td>VAT</td>
+                                    <td id="vat" class="right aligned amount">$145.8</td>
+                                </tr>
+                                <tr>
+                                    <td>TOTAL</td>
+                                    <td id="net-total" class="right aligned total amount">$1,534.8</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="ui container">
+                                <button class="ui fluid primary button">
+                                    CHECKOUT
+                                </button>
+                            </div>
+
+                        </div>
+                        <!-- end of container product-info -->
+
+                    </div>
+                    <!-- end of product info pane -->
+                </div>
+                <!-- end of products info -->
+            </div>
+        </div>
+        <!-- end of container w/ grid -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous"></script>
+    <script src="js/pos.js"></script>
+    <script>
+        $(document).ready(function() {
+            // global variables
+            prod_image = '';
+            prod_name = '';
+            prod_cat = ''; // product category
+            prod_price = 486;
+            prod_items = 156;
+            prod_id = 1;
+
+            load_categories();
+            load_products();
+        });
+    </script>
+
+    
+</body>
+
+</html>
+
+</html>
